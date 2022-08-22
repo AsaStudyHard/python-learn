@@ -41,7 +41,7 @@ def get_images(image_name):  # 获取请求资源路径
 def render():
     with open('./sources/html/render.html', 'r', encoding='utf8') as f:
         html_data = f.read()
-
+    print('hello world')
     return Response(html_data, media_type='text\html')
 
 @api.get('/favicon.ico')
@@ -52,6 +52,7 @@ def get_favicon():
 
     return Response(ico_data, media_type='image\ico')
 
+
 if __name__ == '__main__':
     # 热更新我们这里就不演示了
-    uvicorn.run(api, host='127.0.0.1', port=8080)
+    uvicorn.run("Demo04FastCustomerHtml:api", host='127.0.0.1', port=8080, reload=True)
