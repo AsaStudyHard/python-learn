@@ -27,6 +27,7 @@ def index():
 def get_images(image_name):  # 获取请求资源路径
     """返回images下的图片"""
     # 判断文件是否存在
+    print("image_name = ", image_name)
     request_path = f'./sources/images/{image_name}'
     # 返回数据
     if os.path.isfile(request_path):
