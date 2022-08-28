@@ -7,16 +7,19 @@ import threading
 
 # 定义全局变量
 g_num = 0
+# 创建锁对象
 lock = threading.Lock()
+
 
 def sum_num1():
     global g_num
     # 循环一次给全局变量加1
     for i in range(1000000):
+        # 获取锁
         lock.acquire()
         g_num += 1
+        # 释放锁
         lock.release()
-
 
 
 def sum_num2():
@@ -26,7 +29,6 @@ def sum_num2():
         lock.acquire()
         g_num += 1
         lock.release()
-
 
 
 if __name__ == '__main__':
